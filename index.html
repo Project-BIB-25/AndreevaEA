@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №1 — Основы JavaScript</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            color: #243047;
+            background: #f3f5fa;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header, section {
+            padding: 28px;
+            margin-bottom: 22px;
+            background: white;
+            border: 1px solid #e1e6f0;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px #24304712;
+        }
+
+        h1 {
+            margin: 0;
+            color: #3346a8;
+            font-size: 28px;
+            line-height: 1.35;
+        }
+
+        header p {
+            margin: 12px 0 0;
+            color: #65718a;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        #output {
+            min-height: 100px;
+            padding: 18px;
+            overflow-x: auto;
+            color: #e8edf8;
+            background: #202638;
+            border-radius: 10px;
+            font: 14px/1.7 Consolas, monospace;
+            white-space: pre-wrap;
+        }
+
+        .note {
+            color: #65718a;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+<main>
+    <header>
+        <h1>Лабораторная работа №1: Основы JavaScript. Переменные, типы данных, операции</h1>
+        <p>Практическая работа по основам JavaScript</p>
+    </header>
+
+    <section>
+        <h2>Результаты выполнения программы</h2>
+        <pre id="output">Здесь появятся результаты работы скрипта…</pre>
+    </section>
+
+    <section>
+        <h2>О работе</h2>
+        <p class="note">
+            На странице выполняется файл <code>script.js</code>.
+            Результаты команд <code>console.log()</code> отображаются выше
+            и также доступны в консоли браузера.
+        </p>
+    </section>
+</main>
+
+<script>
+    // Показываем на странице сообщения, отправленные через console.log()
+    const output = document.getElementById("output");
+    const originalLog = console.log;
+
+    console.log = (...values) => {
+        originalLog(...values);
+        output.textContent +=
+            (output.textContent.includes("Здесь появятся") ? "" : "\n") +
+            values.join(" ") +
+            "\n";
+    };
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
